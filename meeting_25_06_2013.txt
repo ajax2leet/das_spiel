@@ -1,0 +1,45 @@
+Im Meeting am 25.06.2013 haben Lubbi und ich (Lars) über Folgendes geredet:
+
+Allgemeines Gameplay
+====================
+- Steuerung durch abstrakte Entität (wie bei Strategiespielen üblich)
+- Keine Kreatur wird direkt gesteuert, es kann nur eine "To-Do-Liste" ausgegeben werden
+- Setup: Man steuert eine Karawane, die von einem (nahegelegenen) Herrschaftshaus entsandt wurde, um territoriale Ansprüche des Lehnsherren gültig zu machen. Der Karawane steht ein Adliger, ein Vasalle, oder ein gemeiner Söldner vor	(übernimmt die Rolle des Anführers -> Ansprechpartner für Boten/Gesandte etc.; Kontaktperson des Lehnsherren eben)
+- Man erhält Vor- und/oder Nachteile durch positive und/oder negative Beziehungen zu den umgebenen Königshäusern; Spiel möglich als Vasall, Ritter o.ä. eines Königshauses, oder Sölnder, Eigenbrödler etc... -> Politik!
+- Man "sieht" nur das, was der Anführer sieht (bzw. den Teil der Welt (das Rechteck), in dem dieser sich befindet)
+- technisches Intermezzo: Welt ist in Bereiche (Rechtecke) unterteilt; nur der aktive Bereich (mit dem Anführer) wird "life" sumiliert, die restliche Welt nur reduziert (Wachstum durch Mittelwerte, zufällige Ereignisse etc...)
+- Möglichkeiten im Spiel: Brandschatzend als Kriegsherr, mit Karawanen als Händler oder als Vasall, König, Söldner etc. durch die Gegend ziehen!
+- Gebäude: Können frei Schnauze (à la DF) errichtet werden; der Spieler definiert die Wände und das Material, die Menschen bauen es
+- Statik muss berücksichtigt werden: alle xyz-Felder muss/wird eine Säule/Balken zur Stabilisierung errichtet 
+- Funktionale Einheiten (Lager, Schmiedeeisen, Ofen, Schlachtbank, etc...) können im Gebäude plaziert werden => Spieler hat max. Gestaltungsfreiheit!
+- Kleinste Einheit Rechteck oder Sechseck?
+
+Generierung der Welt
+====================
+- Welt wird durch ein heuristisches Modell generiert
+- Herrscht Frieden zwischen den Göttern, so wird die Welt normal generiert
+- Konflikte zwischen den Göttern beeinflussen die Welt direkt (Krater, Vulkanausbrüche o.ä.) und indirekt (Krankheiten, Seuchen, Klimawandeln, Wetterumschwung) positiv und negativ!
+- Konflitpotential wird druch Ähnlichkeit (Konkurrenz) und Unterschiede (Konflikt) der Eigenschaften der Götter bestimmt
+
+Götter erschaffen
+=================
+- Man kann Anzahl und Attribute der Götter festlegen
+- Attribute (momentan 8):
+	- Tollkühnheit <-> Bedachtsamkeit
+	- Weisheit <-> Intuition
+	- Zerstöung <-> Erschaffung
+	- Tod <-> Leben
+	- Macht <-> Ohnmacht (Göttervater vs. kleine Nebengottheit)
+	- Autorität <-> Hingabe
+	- Handwerk <-> Natur
+	- Menschlichkeit <-> Anstaktion (tatsächliche Kreatur, die auf der Erde wandert vs. abstrakte, nichtlokale Entität)
+- Markenzeichen für jeden Gott festlegen
+- Name wird von den verschiedenen Völkern erdacht!
+
+Konfliktpotential (technisch)
+=============================
+- Asymmetrie zwischen Eigenschaften wird bestimmt (a-b)/(a+b) -> 0 = ähnlich, +-1 = unterschiedlich!
+- Asymmetrie wird zusätzlich durch Macht/Ohnmacht gewichtet (Göttervater wird wohl kaum gegen kleinen Pups kämpfen...)
+- Wenn gewichtete Asymmetrie einen Grenzwert übersteigt -> Konflikt!
+- Konflikt wird durchgeführt -> Verlier: Macht--, Sieger: Macht++
+- Konflikte werden solange durchgeführt, bis alle Konfliktpotentiale unter der Schwelle liegen (oder die Generierung der Welt abgebrochen wird!)
